@@ -1,0 +1,86 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    flex-direction:row;
+    align-items: center;
+    background: linear-gradient(rgb(47,150,163), rgb(48,62,143));
+    font-family: sans-serif;
+    color: white;
+    text-align: center;
+    justify-content: space-evenly;
+   
+}
+.location, 
+.temperature-section{
+    height: 35vh;
+    flex-direction: column;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+}
+
+.temperature-section{
+    flex-direction: column;
+    margin: 0.938rem;
+    height: 10vh;
+}
+.date-time,.date-time-paris,.date-time-la, .date-time-sydney{
+    font-weight: bold;
+    color:indianred;
+}
+.location-timezone,.location-timezone-la,.location-timezone-paris,.location-timezone-sydney{
+    font-size: 2.5rem;
+    color: lightblue;
+}
+.degree-section {
+    display: flex;
+    align-items: center;
+}
+
+.degree-section span,.degree-section-la span,.degree-section-sydney span,.degree-section-paris span{
+    font-size: 3.75rem;
+    margin: 0.625rem;
+    color: #00A170
+}
+.degree-section h2 {
+    font-size: 5rem;
+}
+.temperature-degree,.temperature-degree-la ,.temperature-degree-sydney,.temperature-degree-paris{
+    color: #00A170;
+}
+.temperature-degree-feren{
+ color: #A0DAA9;
+}
+.temperature-description,.temperature-description-la,.temperature-description-paris,.temperature-description-sydney{
+    color: #926AA6
+}
+
+@media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 812px) 
+  and (-webkit-min-device-pixel-ratio: 3) { 
+    .degree-section span{
+        font-size: 1.55rem;
+        margin: 0.625rem;
+        color: #00A170
+    }
+    .temperature-degree{
+        color: #00A170;
+        font-size: 1.55rem;
+    }
+    .temperature-degree-feren{
+     color: #A0DAA9;             
+     font-size: 1.75rem;
+    }
+    .location-timezone{
+        font-size: 2.5rem;
+        color: lightblue;
+    }
+}
