@@ -62,10 +62,10 @@ window.addEventListener("load", ()=>{
             //API calls
 
             const apis ={
-                native:`http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=5b37ba235354d2d3a601644e092a984b&units=metric `,
-                paris: `http://api.openweathermap.org/data/2.5/weather?lat=${coordinates['parisLat']}&lon=${coordinates['parisLong']}&appid=5b37ba235354d2d3a601644e092a984b&units=metric `,
-                la: `http://api.openweathermap.org/data/2.5/weather?lat=${coordinates['laLat']}&lon=${coordinates['laLong']}&appid=5b37ba235354d2d3a601644e092a984b&units=metric `,
-                sydney: `http://api.openweathermap.org/data/2.5/weather?lat=${coordinates['sydneyLat']}&lon=${coordinates['sydneyLong']}&appid=5b37ba235354d2d3a601644e092a984b&units=metric `
+                native:`https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=5b37ba235354d2d3a601644e092a984b&units=metric `,
+                paris: `https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/weather?lat=${coordinates['parisLat']}&lon=${coordinates['parisLong']}&appid=5b37ba235354d2d3a601644e092a984b&units=metric `,
+                la: `https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/weather?lat=${coordinates['laLat']}&lon=${coordinates['laLong']}&appid=5b37ba235354d2d3a601644e092a984b&units=metric `,
+                sydney: `https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/weather?lat=${coordinates['sydneyLat']}&lon=${coordinates['sydneyLong']}&appid=5b37ba235354d2d3a601644e092a984b&units=metric `
 
             }
 
