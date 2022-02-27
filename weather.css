@@ -31,11 +31,11 @@ body {
     margin: 0.938rem;
     height: 10vh;
 }
-.date-time,.date-time-paris,.date-time-la, .date-time-sydney{
+.date-time-native,.date-time-paris,.date-time-la, .date-time-sydney{
     font-weight: bold;
     color:indianred;
 }
-.location-timezone,.location-timezone-la,.location-timezone-paris,.location-timezone-sydney{
+.location-timezone-native,.location-timezone-la,.location-timezone-paris,.location-timezone-sydney{
     font-size: 2.5rem;
     color: lightblue;
 }
@@ -52,18 +52,18 @@ body {
 .degree-section h2 {
     font-size: 5rem;
 }
-.temperature-degree,.temperature-degree-la ,.temperature-degree-sydney,.temperature-degree-paris{
+.temperature-degree-native,.temperature-degree-la ,.temperature-degree-sydney,.temperature-degree-paris{
     color: #00A170;
 }
-.temperature-degree-feren{
+.temperature-degree-feren-native{
  color: #A0DAA9;
 }
-.temperature-description,.temperature-description-la,.temperature-description-paris,.temperature-description-sydney{
+.temperature-description-native,.temperature-description-la,.temperature-description-paris,.temperature-description-sydney{
     color: #926AA6
 }
 
 @media only screen 
-  and (min-device-width: 375px) 
+  and (min-device-width: 365px) 
   and (max-device-width: 812px) 
   and (-webkit-min-device-pixel-ratio: 3) { 
     .degree-section span{
@@ -71,16 +71,35 @@ body {
         margin: 0.625rem;
         color: #00A170
     }
-    .temperature-degree{
+    .temperature-degree-native.temperature-degree-la ,.temperature-degree-sydney,.temperature-degree-paris{
         color: #00A170;
         font-size: 1.55rem;
     }
-    .temperature-degree-feren{
-     color: #A0DAA9;             
-     font-size: 1.75rem;
+    .temperature-degree-feren-native,.temperature-degree-la ,.temperature-degree-sydney,.temperature-degree-paris{
+        color: #A0DAA9;             
+        font-size: 1.75rem;
     }
-    .location-timezone{
+    .location-timezone-native.temperature-degree-la ,.temperature-degree-sydney,.temperature-degree-paris{
         font-size: 2.5rem;
         color: lightblue;
     }
-}
+
+    
+    body {
+        margin-top: 6rem;
+        height: 100vh;  
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background: linear-gradient(rgb(47,150,163), rgb(48,62,143));
+        font-family: sans-serif;
+        color: white;
+        text-align: center;
+        justify-content: space-around;
+       
+    }
+    .card{
+        margin-top: 10rem;
+    }
+    
+  }
