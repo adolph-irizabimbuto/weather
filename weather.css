@@ -3,7 +3,12 @@
     padding: 0;
     box-sizing: border-box;
 }
-body {
+.box{
+    
+    margin-bottom: - 4rem;
+    font-size: 2rem;
+}
+.hey {
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -85,8 +90,8 @@ body {
     }
 
     
-    body {
-        margin-top: 6rem;
+    .hey {
+        margin-top: 50rem;
         height: 100vh;  
         display: flex;
         flex-direction: column;
@@ -99,7 +104,7 @@ body {
        
     }
     .card{
-        margin-top: 10rem;
+        margin-top: 1rem;
     }
     
   }

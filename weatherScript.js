@@ -1,12 +1,9 @@
 window.addEventListener("load", ()=>{
-   
     //Date 
     const options = {hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true };
     let date = new Date().toDateString();
     // the slice is a cheap hack to obtain the following format "hh:mm:ss"
-    
     let time =new Date().toLocaleDateString('en-US', options).slice(-11)
-   
   
     if(navigator.geolocation){
         navigator.geolocation.getCurrentPosition(position =>{
@@ -39,10 +36,10 @@ window.addEventListener("load", ()=>{
             let i =0;
             // object URL's to be fetched
             const apis ={
-                native: `http://api.openweathermap.org/data/2.5/weather?lat=${coordinates['nativeLat']}&lon=${coordinates['nativeLong']}&appid=5b37ba235354d2d3a601644e092a984b&units=metric `,
-                paris: `http://api.openweathermap.org/data/2.5/weather?lat=${coordinates['parisLat']}&lon=${coordinates['parisLong']}&appid=5b37ba235354d2d3a601644e092a984b&units=metric `,
-                la: `http://api.openweathermap.org/data/2.5/weather?lat=${coordinates['laLat']}&lon=${coordinates['laLong']}&appid=5b37ba235354d2d3a601644e092a984b&units=metric `,
-                sydney: `http://api.openweathermap.org/data/2.5/weather?lat=${coordinates['sydneyLat']}&lon=${coordinates['sydneyLong']}&appid=5b37ba235354d2d3a601644e092a984b&units=metric `
+                native: `https://api.weatherbit.io/v2.0/current?lat=${coordinates['nativeLat']}&lon=${coordinates['nativeLong']}&key=fe861b05a7db4372a22372d803320fc4&include=minutely`,
+                paris: `https://api.weatherbit.io/v2.0/current?lat=${coordinates['parisLat']}&lon=-${coordinates['parisLong']}&key=fe861b05a7db4372a22372d803320fc4&include=minutely`,
+                la: `https://api.weatherbit.io/v2.0/current?lat=${coordinates['laLat']}&lon=${coordinates['laLong']}&key=fe861b05a7db4372a22372d803320fc4&include=minutely`,
+                sydney: `https://api.weatherbit.io/v2.0/current?lat=${coordinates['sydneyLat']}&lon=${coordinates['sydneyLong']}&key=fe861b05a7db4372a22372d803320fc4&include=minutely`
         
             }
             //fetch data from Open Weather Map servers then parse to JSON
@@ -54,31 +51,33 @@ window.addEventListener("load", ()=>{
             //retuns a promise ONCE all the iterable fetch api's have been resolved
             const data = await Promise.all([native, paris, la, sydney])
             newDB.push(data);
-                //iterates though each KVP in the "apis" oject then uses the key to paint the DOM with the content associated with that key.
-                Object.keys(apis).forEach(key => {
-                    document.querySelector(`.temperature-degree-${key}`).textContent = Math.floor(newDB[0][i].main.temp);
-                    document.querySelector(`.temperature-description-${key}`).textContent = `you can expect ${newDB[0][i].weather[0].description}`.toUpperCase();
-                    document.querySelector(`.location-timezone-${key}`).textContent = `${newDB[0][i].name}, ${newDB[0][i].sys.country}` ;
-                    document.querySelector(`.weather-icon-${key}`).textContent = newDB[0][i].weather[0].icon;
-                    document.querySelector(`.temperature-degree-feren-${key}`).textContent = Math.floor(celciusToFerenheight(newDB[0][i].main.temp));
-                    document.querySelector(`.date-time-${key}`).textContent = `${date} | ${time}`
-                    //incriments i
-                    i++
-                })
             
+                //iterates though each KVP in the "apis" oject then uses the key to paint the DOM with the content associated with that key.
+            Object.keys(apis).forEach(key => {
+                document.querySelector(`.temperature-degree-${key}`).textContent = Math.floor(newDB[0][i].data[0].temp);
+                document.querySelector(`.temperature-description-${key}`).textContent = `you can expect ${newDB[0][i].data[0].weather.description}`.toUpperCase();
+                document.querySelector(`.location-timezone-${key}`).textContent = `${newDB[0][i].data[0].city_name}, ${newDB[0][i].data[0].country_code}` ;
+                document.querySelector(`.weather-icon-${key}`).setAttribute("src", `https://www.weatherbit.io/static/img/icons/${newDB[0][i].data[0].weather.icon}.png`) 
+                document.querySelector(`.temperature-degree-feren-${key}`).textContent = Math.floor(celciusToFerenheight(newDB[0][i].data[0].app_temp));
+                document.querySelector(`.date-time-${key}`).textContent = `${date} | ${time}`
+                //add wind speed to next update
+                // document.querySelector(`.wind-description-${key}`).textContent = `wind speeds are ${newDB[0][i].data[0].wind_spd} m/s headind ${newDB[0][0].data[0].wind_cdir_full} at ${newDB[0][0].data[0].wind_dir} degress`
+                //incriments i
+
+                //add local time to to next update
+                i++
+            })
         }
         logData()
-       
-        });  
+    });  
         }  
         // handle an absent geolocation
     else{
-       temperatureDescription.textContent = "Please allow location services for this to work"
+        alert("please allow location services for this to work");
     }
     function celciusToFerenheight(celcius){
         return (celcius*1.8)+ 32
     }
-
 
     // add to next update
     // function convertTimeZOne(date, tzString) {
