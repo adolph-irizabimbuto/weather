@@ -8,7 +8,7 @@
     margin-bottom: - 4rem;
     font-size: 2rem;
 }
-.hey {
+.body-container {
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -55,7 +55,7 @@
     color: #00A170
 }
 .degree-section h2 {
-    font-size: 5rem;
+    font-size: 5rem
 }
 .temperature-degree-native,.temperature-degree-la ,.temperature-degree-sydney,.temperature-degree-paris{
     color: #00A170;
@@ -67,6 +67,12 @@
     color: #926AA6
 }
 
+/* animations */
+
+.card:hover{
+    transform: scale(1.3);
+}
+/* media queries */
 @media only screen 
   and (min-device-width: 365px) 
   and (max-device-width: 812px) 
@@ -90,7 +96,7 @@
     }
 
     
-    .hey {
+    .body-container {
         margin-top: 50rem;
         height: 100vh;  
         display: flex;
@@ -107,4 +113,24 @@
         margin-top: 1rem;
     }
     
-  }
+}
+
+@media only screen 
+  and (min-device-width: 1440px) 
+  and (max-device-width: 1600px) 
+  { 
+
+    .degree-section h2 {
+        font-size: 4.5rem;
+        color: #00A170
+    }
+
+    .degree-section span,.degree-section-la span,.degree-section-sydney span,.degree-section-paris span{
+        font-size: 1.75rem;
+        margin: 0.625rem;
+        color: #00A170
+    }
+    .card:hover{
+        transform: scale(1.1);
+    }
+}
