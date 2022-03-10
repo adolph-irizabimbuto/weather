@@ -5,14 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <link rel="stylesheet" href="weather.css">
-    <title>Weather App</title>
+    <title>Saturn Weather</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="weatherScript.js"></script>
 </head>
 <body>
-    <div class="box">
-        Saturn Weather
-      </div>
+    
     <div class="body-container">
     <div class="card">
         <div class="card-content" style="background-image: url('img/blade.jpg'); background-size: 100% 100%;")>
@@ -58,9 +57,7 @@
             </div>   
           </p>
         </footer>
-        <h3 class="wind-description-native">
-           created by adolph
-        </h3>
+    
     </div>
 
 
@@ -109,14 +106,12 @@
             </div>   
           </p>
         </footer>
-        <h3 class="wind-description-la">
-           created by adolph
-        </h3>
+    
     </div>
 
 
 
-<!-- sydney -->
+<!-- Tokyo -->
     <div class="card">
         <div class="card-content" style="background-image: url('img/kakashi.png'); background-size: 100% 100%;")>
           <p class="title">
@@ -124,20 +119,20 @@
             <div class="location">
         <!-- icon -->
                 <p>
-                    <img class="weather-icon-sydney" src="https://openweathermap.org/img/wn/10d@2x.png" alt="weather icon" width="100" height="100">
+                    <img class="weather-icon-tokyo" src="https://openweathermap.org/img/wn/10d@2x.png" alt="weather icon" width="100" height="100">
                     
                 </p>
-                <h1 class="location-timezone-sydney"></h1>
+                <h1 class="location-timezone-tokyo"></h1>
             </div>
           </p>
 
 <!-- wheater description -->
           <p class="subtitle">
             <div class="temperature-description-section">
-                <h4 class="temperature-description-sydney"></h4>
+                <h4 class="temperature-description-tokyo"></h4>
             </div>
             <div class="date">
-                <h3 class="date-time-sydney"></h3>
+                <h3 class="date-time-tokyo"></h3>
             </div>
           </p>
         </div>
@@ -145,7 +140,7 @@
         <footer class="card-footer">
             <div class="temperature-section">
                 <div class="degree-section">
-                    <h2 class="temperature-degree-sydney"></h2>
+                    <h2 class="temperature-degree-tokyo"></h2>
                 <!-- // toggel between degrees and shit -->
                     <span>°C</span>
                 </div>
@@ -154,16 +149,14 @@
           <p class="card-footer-item">
             <div class="temperature-section">
                 <div class="degree-section">
-                    <h2 class="temperature-degree-feren-sydney"></h2>
+                    <h2 class="temperature-degree-feren-tokyo"></h2>
                 <!-- // toggel between degrees and shit -->
                     <span> °F</span>
                 </div>
             </div>   
           </p>
         </footer>
-        <h3 class="wind-description-sydney">
-           created by adolph
-        </h3>
+        
     </div>
 
 
@@ -213,12 +206,17 @@
             </div>   
           </p>
         </footer>
-        <h3 class="wind-description-paris">
-           created by adolph
-        </h3>
+      
     </div>
-</div>
     
-    <script src="weatherScript.js"></script>
+
+</div>
+
+    <footer class="created">
+        <h2> 
+           created by <a class="link" href="https://github.com/azulaZen">adolph irizabimbuto</a>
+        </h2>
+      </footer>
+   
 </body>
 </html>
