@@ -36,22 +36,22 @@ window.addEventListener("load", ()=>{
             let i =0;
             // object URL's to be fetched
             const apis ={
-                native: `https://api.weatherbit.io/v2.0/current?lat=${coordinates['nativeLat']}&lon=${coordinates['nativeLong']}&key=fe861b05a7db4372a22372d803320fc4&include=minutely`,
-                paris: `https://api.weatherbit.io/v2.0/current?lat=${coordinates['parisLat']}&lon=-${coordinates['parisLong']}&key=fe861b05a7db4372a22372d803320fc4&include=minutely`,
-                la: `https://api.weatherbit.io/v2.0/current?lat=${coordinates['laLat']}&lon=${coordinates['laLong']}&key=fe861b05a7db4372a22372d803320fc4&include=minutely`,
-                tokyo: `https://api.weatherbit.io/v2.0/current?lat=${coordinates['tokyoLat']}&lon=${coordinates['tokyoLong']}&key=fe861b05a7db4372a22372d803320fc4&include=minutely`
-        
+                native: `https://api.weatherbit.io/v2.0/current?lat=${coordinates['nativeLat']}&lon=${coordinates['nativeLong']}&key=6bf7390f0b7945ab88abf3e40f3d50f2&include=minutely`,
+                paris: `https://api.weatherbit.io/v2.0/current?lat=${coordinates['parisLat']}&lon=-${coordinates['parisLong']}&key=6bf7390f0b7945ab88abf3e40f3d50f2&include=minutely`,
+                la: `https://api.weatherbit.io/v2.0/current?lat=${coordinates['laLat']}&lon=${coordinates['laLong']}&key=6bf7390f0b7945ab88abf3e40f3d50f2&include=minutely`,
+                tokyo: `https://api.weatherbit.io/v2.0/current?lat=${coordinates['tokyoLat']}&lon=${coordinates['tokyoLong']}&key=6bf7390f0b7945ab88abf3e40f3d50f2&include=minutely`,
             }
+                
             //fetch data from WeatherBit's servers then parse to JSON
             const native = fetch(apis.native).then(value => value.json())
             const paris = fetch(apis.paris).then(value => value.json())
             const la =  fetch(apis.la).then(value => value.json())
             const tokyo = fetch(apis.tokyo).then(value => value.json())
-
+            
             //retuns a promise ONCE all the iterable fetch api's have been resolved
             const data = await Promise.all([native, paris, la, tokyo])
             returnWeatherArray.push(data);
-            
+             
             //iterates though each KVP in the "apis" oject then uses the key to paint the DOM with the content associated with that key.
             Object.keys(apis).forEach(key => {
                 document.querySelector(`.temperature-degree-${key}`).textContent = Math.floor(returnWeatherArray[0][i].data[0].temp);
